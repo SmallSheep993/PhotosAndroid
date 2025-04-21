@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="#FAF7FF">
+
+    <!-- Photo thumbnail -->
+    <ImageView
+        android:id="@+id/photoImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="12dp" />
+
+    <!-- Right side: metadata and action buttons -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <!-- Text displaying image index and tags -->
+        <TextView
+            android:id="@+id/photoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="image.jpg"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:maxLines="5"
+            android:ellipsize="end" />
+
+        <!-- Action buttons: Add Tag, Delete Tag, Move -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:weightSum="3">
+
+            <!-- Add Tag button -->
+            <Button
+                android:id="@+id/addTagButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:text="Add Tag"
+                android:textSize="12sp"
+                android:backgroundTint="#6200EE"
+                android:textColor="@android:color/white"
+                android:layout_marginEnd="6dp"
+                android:padding="4dp"
+                android:gravity="center" />
+
+            <!-- Delete Tag button -->
+            <Button
+                android:id="@+id/deleteTagButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:text="Delete"
+                android:textSize="12sp"
+                android:backgroundTint="#D32F2F"
+                android:textColor="@android:color/white"
+                android:layout_marginEnd="6dp"
+                android:padding="4dp"
+                android:gravity="center" />
+
+            <!-- Move Photo button -->
+            <Button
+                android:id="@+id/movePhotoButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:text="Move"
+                android:textSize="12sp"
+                android:backgroundTint="#018786"
+                android:textColor="@android:color/white"
+                android:padding="4dp"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Delete Photo icon button -->
+    <ImageButton
+        android:id="@+id/deletePhotoButton"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@android:drawable/ic_menu_delete"
+        android:background="@null"
+        android:contentDescription="Delete photo"
+        android:tint="@android:color/holo_red_dark"
+        android:layout_marginStart="8dp" />
+</LinearLayout>
