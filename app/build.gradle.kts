@@ -39,11 +39,10 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    // ✅ 保留你需要的 activity 版本
+
     implementation("androidx.activity:activity:1.8.2")
 }
 
-// ✅ 强制 resolution（确保 1.10.1 不再被拉进来）
 configurations.all {
     resolutionStrategy {
         force("androidx.activity:activity:1.8.2")
