@@ -18,7 +18,7 @@ import java.util.List;
 public class PhotoAdapter extends ArrayAdapter<Photo> {
     private final Context context;
     private final List<Photo> photos;
-    private final Album currentAlbum; // ✅ Needed for actual photo removal
+    private final Album currentAlbum; // Needed for actual photo removal
     private final Runnable saveCallback;
 
     public PhotoAdapter(Context context, List<Photo> photos, Album currentAlbum, Runnable saveCallback) {
@@ -86,7 +86,7 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
                     .show();
         });
 
-        // ❌ Delete Tag
+        // Delete Tag
         deleteTagButton.setOnClickListener(v -> {
             List<Tag> tags = photo.getTags();
             if (tags.isEmpty()) {
@@ -112,7 +112,7 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
                     .show();
         });
 
-        // 🔄 Move Photo to another album
+        // Move Photo to another album
         moveButton.setOnClickListener(v -> {
             ArrayList<Album> albums = FileStorage.loadAlbums(context);
             String[] albumNames = new String[albums.size()];
@@ -128,13 +128,13 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
                         if (!targetAlbum.containsPhoto(photo)) {
                             targetAlbum.addPhoto(photo);
 
-                            // ✅ Remove from current album (runtime)
+                            // Remove from current album (runtime)
                             currentAlbum.removePhoto(photo);
                             photos.remove(photo);
                             notifyDataSetChanged();
                             Toast.makeText(context, "Photo moved to " + targetAlbum.getName(), Toast.LENGTH_SHORT).show();
 
-                            // ✅ Update albums list with updated album objects
+                            // Update albums list with updated album objects
                             for (int i = 0; i < albums.size(); i++) {
                                 Album a = albums.get(i);
                                 if (a.getName().equals(currentAlbum.getName())) {
@@ -144,10 +144,10 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
                                 }
                             }
 
-                            // ✅ Save updated album list
+                            // Save updated album list
                             FileStorage.saveAlbums(context, albums);
 
-                            // ✅ Notify parent activity to save if needed
+                            // Notify parent activity to save if needed
                             saveCallback.run();
                         } else {
                             Toast.makeText(context, "Photo already exists in selected album", Toast.LENGTH_SHORT).show();
@@ -158,7 +158,7 @@ public class PhotoAdapter extends ArrayAdapter<Photo> {
         });
 
 
-        // 🗑️ Delete photo from current album
+        // Delete photo from current album
         deletePhotoButton.setOnClickListener(v -> {
             new AlertDialog.Builder(context)
                     .setTitle("Delete Photo")

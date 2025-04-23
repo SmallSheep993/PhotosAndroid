@@ -89,7 +89,7 @@ public class Photo implements Serializable {
         return fileName + (description.isEmpty() ? "" : " - " + description);
     }
 
-    // ✅ Ensure photos with same path are treated as same
+    // Ensure photos with same path are treated as same
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
