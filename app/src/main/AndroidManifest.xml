@@ -31,7 +31,7 @@
         <activity android:name=".view.PhotoSlideshowActivity" />
 
         <!-- 🔍 Tag-based Search (You forgot this one!) -->
-        <activity android:name=".view.SearchActivity" /> <!-- ✅ 添加了这一行 -->
+        <activity android:name=".view.SearchActivity" />
 
     </application>
 
